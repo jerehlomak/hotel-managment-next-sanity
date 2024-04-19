@@ -10,13 +10,19 @@ import { LiaFireExtinguisherSolid } from "react-icons/lia";
 import { AiOutlineMedicineBox } from "react-icons/ai";
 import { GiSmokeBomb } from "react-icons/gi";
 import { BookRoomCTA } from "@/app/components";
-import { useState } from "react";
+import { FC, useState } from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { getStripe } from "@/libs/stripe";
 import RoomReview from "@/app/components/RoomReview/RoomReview";
 
-const RoomDetails = (props: { params: { slug: string } }) => {
+type Props = {
+  params : {
+    slug: string;
+  }
+}
+
+const RoomDetails: FC<Props> = (props) => {
   const {
     params: { slug },
   } = props;
