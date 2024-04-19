@@ -19,11 +19,12 @@ export const metadata: Metadata = {
   description: "Discover The Best Hotel Rooms",
 };
 
+
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <head>
