@@ -43,7 +43,7 @@ export const createBooking = async ({
   user,
   hotelRoom,
   numberOfDays,
-  children,
+  childrens,
 }: CreateBookingDTO) => {
   const mutation = {
     mutations: [
@@ -56,7 +56,7 @@ export const createBooking = async ({
           checkOutDate,
           numberOfDays,
           adults,
-          children,
+          childrens,
           discount,
           totalPrice,
         },

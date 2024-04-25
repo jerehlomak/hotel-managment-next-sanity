@@ -29,7 +29,7 @@ const RoomDetails: FC<Props> = (props) => {
   const [checkInDate, setCheckInDate] = useState<Date | null>(null);
   const [checkOutDate, setCheckOutDate] = useState<Date | null>(null);
   const [adults, setAdults] = useState(1);
-  const [children, setChildren] = useState(0);
+  const [childrens, setChildren] = useState(0);
 
   const fetchRoom = async () => getRoom(slug);
   const { data: room, error, isLoading } = useSWR("api/room", fetchRoom);
@@ -74,7 +74,7 @@ const RoomDetails: FC<Props> = (props) => {
         numberOfDays,
         hotelRoomSlug,
         adults,
-        children,
+        childrens,
       })
       console.log(stripeSession)
       if (stripe) {
@@ -188,7 +188,7 @@ const RoomDetails: FC<Props> = (props) => {
               calcMinCheckOutDate={calcMinCheckOutDate}
               adults={adults}
               setAdults={setAdults}
-              children={children}
+              childrens={childrens}
               setChildren={setChildren}
               isBooked={room.isBooked}
               handleBookNowClick={handleBookNowClick}

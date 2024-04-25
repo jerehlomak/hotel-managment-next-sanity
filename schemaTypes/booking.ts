@@ -54,7 +54,7 @@ const booking = {
             validation: Rule => Rule.required().min(1)
         }),
         defineField({
-            name: "children",
+            name: "childrens",
             title: "Children",
             type: "number",
             initialValue: 0,

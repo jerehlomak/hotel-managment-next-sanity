@@ -12,7 +12,7 @@ type RequestData = {
   checkInDate: string;
   checkOutDate: string;
   adults: number;
-  children: number;
+  childrens: number;
   numberOfDays: number;
   hotelRoomSlug: string;
 };
@@ -22,7 +22,7 @@ export async function POST(req: Request, res: Response) {
     checkInDate,
     checkOutDate,
     adults,
-    children,
+    childrens,
     numberOfDays,
     hotelRoomSlug,
   }: RequestData = await req.json();
@@ -76,7 +76,7 @@ export async function POST(req: Request, res: Response) {
         checkInDate: formattedCheckInDate,
         checkOutDate: formattedCheckOutDate,
         adults,
-        children,
+        childrens,
         numberOfDays,
         hotelRoom: room._id,
         totalPrice,
