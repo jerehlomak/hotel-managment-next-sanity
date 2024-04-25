@@ -14,7 +14,7 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Hotel Management App",
   description: "Discover The Best Hotel Rooms",
 };

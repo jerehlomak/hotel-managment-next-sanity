@@ -49,14 +49,16 @@ export type CreateBookingDTO = {
 }
 
 export type MetaDataDTO = {
-    checkInDate: string,
-    checkOutDate: string,
-    adults: string,
-    children: string,
-    numberOfDays: string,
-    hotelRoom: string,
-    totalPrice: string,
-    user: string,
-    discount: string,
+    metadata: {
+        checkInDate: string,
+        checkOutDate: string,
+        adults: string,
+        children: string,
+        numberOfDays: string,
+        hotelRoom: string,
+        totalPrice: string,
+        user: string,
+        discount: string,
+    }
 }
 

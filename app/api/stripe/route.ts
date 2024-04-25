@@ -4,6 +4,8 @@ import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
+import { MetaDataDTO } from "@/app/models/room";
+
 const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY as string, {
   apiVersion: "2024-04-10",
 });

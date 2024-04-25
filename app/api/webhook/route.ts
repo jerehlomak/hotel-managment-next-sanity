@@ -2,6 +2,26 @@ import { createBooking, updateHotelRoom } from "@/libs/apis";
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
+// Define types for the metadata object
+interface MetaData {
+  checkInDate: string;
+  checkOutDate: string;
+  adults: string;
+  childrens: string;
+  numberOfDays: string;
+  hotelRoom: string;
+  totalPrice: string;
+  user: string;
+  discount: string;
+}
+
+// Define type for the session object
+interface Session {
+  metadata: MetaData;
+}
+
+
+
 const checkout_session_completed = "checkout.session.completed";
 
 const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY as string, {
@@ -27,29 +47,29 @@ export async function POST(req: Request, res: Response) {
   // load events
   switch (event.type) {
     case checkout_session_completed:
-      const session = event.data.object;
+      //@ts-ignore
+      const session: Session = event.data.object as import("stripe").Stripe.Checkout.Session;
 
+      console.log(session.metadata)
       // create a booking
+
       const {
-        //@ts-ignore
-        metadata: {
           checkInDate,
           checkOutDate,
           adults,
-          children,
+          childrens,
           numberOfDays,
           hotelRoom,
           totalPrice,
           user,
-          discount,
-        },
-      } = session;
+          discount,       
+      } = session.metadata;
 
       await createBooking({
         checkInDate,
         checkOutDate,
         adults: Number(adults),
-        children: Number(children),
+        childrens: Number(childrens),
         numberOfDays: Number(numberOfDays),
         hotelRoom,
         totalPrice: Number(totalPrice),
